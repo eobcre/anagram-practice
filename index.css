@@ -17,3 +17,7 @@ input {
   gap: 10px;
   height: 100vh;
 }
+
+.result {
+  padding: 10px;
+}
