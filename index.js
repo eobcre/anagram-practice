@@ -1,22 +1,30 @@
 const isAnagram = (s, t) => {
-  let len1 = s.length;
-  let len2 = t.length;
-
-  if (len1 !== len2) {
-    return 'Invalid';
+  if (s.length !== t.length) {
+    return false;
   }
 
   let sort1 = s.split('').sort().join('');
   let sort2 = t.split('').sort().join('');
 
-  if (sort1 === sort2) {
-    return 'True';
+  return sort1 === sort2;
+};
+
+const inputElement_1 = document.querySelector('#linked-1');
+const inputElement_2 = document.querySelector('#linked-2');
+const resultElement = document.querySelector('#result');
+
+const checkAnagram = () => {
+  const input_1 = inputElement_1.value;
+  const input_2 = inputElement_2.value;
+
+  const result = isAnagram(input_1, input_2);
+
+  if (result) {
+    resultElement.textContent = 'True';
   } else {
-    return 'False';
+    resultElement.textContent = 'False';
   }
 };
 
-const result = isAnagram('anagram', 'gramana');
-
-const display = document.querySelector('#result');
-display.textContent = result;
+inputElement_1.addEventListener('input', checkAnagram);
+inputElement_2.addEventListener('input', checkAnagram);
